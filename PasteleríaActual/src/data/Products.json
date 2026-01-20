@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Torta Helada de Oreo",
+    "price": 20000,
+    "description": "Torta helada ideal para este calor con galletas Oreo, dulce de leche y crema de leche.",
+    "imageCard": "https://ebeoq6b9gmx.exactdn.com/wp-content/uploads/2016/09/Tarta-Oreo-1.jpg?strip=all&lossy=1&ssl=1",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Torta de oreo cortada.png"
+  },
+  {
+    "id": 2,
+    "name": "Torta de Chocolate",
+    "price": 12990,
+    "description": "Bizcocho húmedo de chocolate con trozos pequeños de chocolate arriba.",
+    "imageCard": "https://i.ytimg.com/vi/Bk3k3vniLWI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDDH5lOhWYvPwi3TO3MrQy0xokg5A",
+    "imageDetail": ""
+  },
+  {
+    "id": 3,
+    "name": "Cupcakes (Pack 6)",
+    "price": 6990,
+    "description": "Pack surtido de 6 unidades.",
+    "imageCard": "https://tofuu.getjusto.com/orioneat-local/resized2/5BsJsaw33fRPzJcAK-300-x.webp",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Cupcackes surtidos en fila.png"
+  },
+  {
+    "id": 4,
+    "name": "Tarta de Frutas",
+    "price": 10990,
+    "description": "Tartaleta de frutas con crema pastelera",
+    "imageCard": "https://i.ytimg.com/vi/IRBCpfWEdfI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBWnKBUH8ilR3ajQiHLY8tr9u4Tpg",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Tarta de frutas partida.png"
+  },
+  {
+    "id": 5,
+    "name": "Galletas Artesanales",
+    "price": 3990,
+    "description": "Mantequilla artesanal.",
+    "imageCard": "https://www.bekiacocina.com/images/cocina/0000/690-c.jpg",
+    "imageDetail": "/PasteleríaActual/src/assets/img/galletas artesanales en bolsa.png"
+  },
+  {
+    "id": 6,
+    "name": "Torta Red Velvet",
+    "price": 14990,
+    "description": "Bizcocho red velvet suave con frosting de queso crema.",
+    "imageCard": "https://i0.wp.com/www.pasionthermomix.co/wp-content/uploads/2022/10/0001005216LosMejoresPostresDelMundoEp007RedVelvetCake3.jpg?fit=1600%2C900&ssl=1",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Torta red velvet partida.png"
+  },
+  {
+    "id": 7,
+    "name": "Cupcakes de Frutilla (Pack 6)",
+    "price": 7490,
+    "description": "Cupcakes de frutilla con crema y fresa en la punta.",
+    "imageCard": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTs8o6yWxERYFriDmxlmADsBzUydl-WJTZK4toW-Dt1klLCvtcT",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Cupcakes de Frutilla partido.png"
+  },
+  {
+    "id": 8,
+    "name": "Cupcakes Vainilla y Frambuesa (Pack 6)",
+    "price": 7490,
+    "description": "Vainilla esponjosa con relleno de frambuesa y crema.",
+    "imageCard": "https://canalcocina.es/medias/images/1702DulcesConAlmaT2CupcakesLimonFrambuesa3.jpg",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Cupcacke de vainilla y frambuesa cortado.png"
+  },
+  {
+    "id": 9,
+    "name": "Tarta de Limón (Lemon Pie)",
+    "price": 9990,
+    "description": "Crema de limón ácida y dulce con merengue tostado.",
+    "imageCard": "https://omasbrot.cl/web24/wp-content/uploads/Pie-de-limon-2-scaled.webp",
+    "imageDetail": "/PasteleríaActual/src/assets/img/pie de limon cortado.png"
+  },
+  {
+    "id": 10,
+    "name": "Tarta de Manzana",
+    "price": 10490,
+    "description": "Manzana especiada con canela sobre base crujiente.",
+    "imageCard": "https://cdn7.kiwilimon.com/recetaimagen/41211/640x640/55869.jpg.jpg",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Tarta de manzana cortada.png"
+  },
+  {
+    "id": 11,
+    "name": "Galletas con Chips de Chocolate",
+    "price": 4490,
+    "description": "Crujientes por fuera, suaves por dentro, con chispas.",
+    "imageCard": "https://osojimix.com/wp-content/uploads/2022/05/Galletas-con-chips-de-chocolate-Pa%CC%81gina-500x500.jpg",
+    "imageDetail": "/PasteleríaActual/src/assets/img/galletas con chips de chocolate.png"
+  },
+  {
+    "id": 12,
+    "name": "Galletas de Avena y Pasas",
+    "price": 4290,
+    "description": "Avena tostada con pasas, toque de canela.",
+    "imageCard": "https://campograndeperu.com/wp-content/uploads/2024/02/galletas-de-avena-y-pasas-de-uva.jpg",
+    "imageDetail": "/PasteleríaActual/src/assets/img/Galletas de avena y pasas.png"
+  }
+]
