@@ -1,0 +1,64 @@
+/* La app completa debe ocupar todo el ancho */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Navbar pastel usando variables */
+.navbar-pastel {
+  background: linear-gradient(90deg, var(--brand), var(--brand2)) !important;
+}
+
+/* Texto blanco en navbar */
+.navbar-pastel .navbar-brand,
+.navbar-pastel .nav-link {
+  color: #fff !important;
+}
+
+/* Subrayado del link activo */
+.navbar-pastel .nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Botón buscar */
+.btn-search {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-weight: 600;
+}
+.btn-search:hover {
+  background-color: #ffffff;
+  color: #c06c84;
+}
+
+/* Carrusel con tamaño fijo */
+.carousel-pasteleria {
+  height: 380px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  margin-top: 20px;
+}
+.carousel-pasteleria .carousel-item img {
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* Footer con línea de color */
+footer.bg-dark {
+  border-top: 3px solid #c06c84;
+}
+
+/* Este contenedor limita el ancho SOLO del contenido (no del footer/navbar) */
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
