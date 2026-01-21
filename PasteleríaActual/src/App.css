@@ -1,0 +1,197 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/*Estilos Propios*/
+
+/* Navbar (usa la clase navbar-pastel en el nav) */
+.navbar-pastel{
+  background: linear-gradient(90deg, var(--brand), var(--brand2)) !important;
+}
+
+.navbar-pastel .navbar-brand,
+.navbar-pastel .nav-link{
+  color: #fff !important;
+}
+
+.navbar-pastel .nav-link.active{
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.navbar-pastel .nav-link:hover{
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  opacity: .95;
+}
+
+/* Importante: icono del botón hamburguesa visible en navbar oscuro */
+.navbar-pastel .navbar-toggler{
+  border-color: rgba(255,255,255,.45) !important;
+}
+
+.navbar-pastel .navbar-toggler-icon{
+  filter: invert(1);
+}
+
+/* Botones */
+.btn-primary{
+  background-color: var(--brand) !important;
+  border: none !important;
+}
+
+.btn-primary:hover{
+  filter: brightness(.97);
+}
+
+/* Botón Buscar (blanco) */
+.btn-search{
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-weight: 600;
+}
+.btn-search:hover{
+  background-color: #ffffff;
+  color: #c06c84;
+}
+
+.pastel-bg{
+  background-color: #f5e1e1 !important;/* rosado crema */
+}
+
+/* Bloque principal (lo usas en Pasteleria.html y te recomiendo usarlo en Productos.html) */
+.main-pastel{
+  background-color: #f0d6de;
+  border-radius: 25px;
+}
+
+
+/* Importante: icono del botón hamburguesa visible en navbar oscuro */
+.navbar-pastel .navbar-toggler{
+  border-color: rgba(255,255,255,.45) !important;
+}
+.navbar-pastel .navbar-toggler-icon{
+  filter: invert(1);
+}
+
+/* Mejora para los links del footer */
+.hover-white:hover {
+    color: white !important;
+    transition: 0.3s;
+}
+
+/* Opcional: Si quieres que el footer tenga un toque del color pastel */
+footer.bg-dark {
+    border-top: 3px solid #c06c84; /* Una línea delgada con tu color insignia */
+}
+
+
+/* Marco del carrusel */
+.carousel-pasteleria {
+  height: 380px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  margin-top: 20px; /* Separación opcional del navbar */
+}
+
+/* Ajuste específico para las imágenes dentro de Bootstrap Carousel */
+.carousel-pasteleria .carousel-item img {
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* Opcional: Centrar verticalmente el contenido si la imagen es pequeña */
+.carousel-pasteleria .carousel-inner {
+  height: 100%;
+}
+
+/* Estilo para la tarjeta de contacto */
+.contact-card {
+  border-top: 5px solid #c06c84; /* Línea de color de la pastelería arriba */
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #f8ecee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Color de foco en los inputs */
+.form-control:focus {
+  border-color: #c06c84;
+  box-shadow: 0 0 0 0.25rem rgba(192, 108, 132, 0.25);
+}
+
+/* Tarjeta de contacto mejorada */
+.contact-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(192, 108, 132, 0.1); /* Un toque sutil de tu color pastel */
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse (opcional) */
+.contact-card:hover {
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Para que combine con el fondo de la página */
+.pastel-bg {
+  background-color: #fcf8f9; /* Un blanco con un toque de rosa muy suave */
+  min-height: 100vh;
+}
