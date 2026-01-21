@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { useContact } from '../context/ContactContext'; // Importamos el hook
 
 const Contacto = () => {
+  // Extraemos todo del contexto
+  const { email, setEmail, mensaje, setMensaje, error, success, validateAndSend } = useContact();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("¡Mensaje enviado con éxito! Te contactaremos pronto.");
+    const isSent = validateAndSend();
+    if (isSent) {
+      alert("¡Mensaje enviado con éxito!");
+    }
   };
 
   return (
@@ -13,51 +20,41 @@ const Contacto = () => {
       <Row className="justify-content-center">
         <Col xs={12} md={8} lg={6}>
           <div className="contact-card p-4 p-md-5 shadow-sm border-0 rounded-4 bg-white">
-            <div className="text-center mb-4">
-              <div className="contact-icon mx-auto mb-3" style={{ fontSize: '2rem' }}>
-                ✉️
-              </div>
-              <h1 className="h4 fw-bold mb-1" style={{ color: '#c06c84' }}>
-                Contáctanos por correo
-              </h1>
-              <p className="text-muted mb-0">
-                Respondiendo lo antes posible. Cuéntanos tu solicitud.
-              </p>
-            </div>
+            <h1 className="h4 fw-bold mb-4 text-center" style={{ color: '#c06c84' }}>
+              Contáctanos
+            </h1>
+
+            {error && <Alert variant="danger">{error}</Alert>}
+            {success && <Alert variant="success">Mensaje enviado correctamente.</Alert>}
 
             <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="correo">
-                <Form.Label className="fw-semibold">Correo Electrónico</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label>Correo Electrónico</Form.Label>
                 <Form.Control 
                   type="email" 
-                  size="lg" 
-                  placeholder="nombre@ejemplo.com" 
+                  placeholder="nombre@duocuc.cl" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required 
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="mensaje">
-                <Form.Label className="fw-semibold">Déjanos tu comentario</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label>Mensaje</Form.Label>
                 <Form.Control 
                   as="textarea" 
                   rows={4} 
-                  placeholder="Escribe tu mensaje aquí..." 
+                  value={mensaje}
+                  onChange={(e) => setMensaje(e.target.value)}
                   required 
                 />
-                <Form.Text className="text-muted">
-                  Evita incluir datos sensibles. Te responderemos al correo indicado.
-                </Form.Text>
               </Form.Group>
 
-              <Button 
-                type="submit" 
-                className="w-100 btn-lg border-0"
-                style={{ backgroundColor: '#c06c84' }}
-              >
+              <Button type="submit" className="w-100 border-0" style={{ backgroundColor: '#c06c84' }}>
                 Enviar mensaje
               </Button>
-
-              <div className="contact-card p-4 p-md-5">
+              
+              <div className="text-center mt-3">
                 <Link to="/" className="small text-decoration-none" style={{ color: '#c06c84' }}>
                   Volver al inicio
                 </Link>
