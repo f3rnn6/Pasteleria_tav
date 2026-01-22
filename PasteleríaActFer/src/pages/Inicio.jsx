@@ -38,6 +38,45 @@ const Inicio = () => {
             <p>Hechas con amor y los mejores ingredientes.</p>
           </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Pastelería"
+          />
+          <Carousel.Caption
+            style={{ background: "rgba(192, 108, 132, 0.7)", borderRadius: "10px" }}
+          >
+            <h3>Nuestras Deliciosas Galletas</h3>
+            <p>Reales y deliciosas.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://images.unsplash.com/photo-1640806354740-d47c98c190ea?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Pastelería"
+          />
+          <Carousel.Caption
+            style={{ background: "rgba(192, 108, 132, 0.7)", borderRadius: "10px" }}
+          >
+            <h3>Nuestros Mejores Cupcakes</h3>
+            <p>Con los sabores más irresistibles.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://images.unsplash.com/photo-1561339405-e1dd0d129449?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Pastelería"
+          />
+          <Carousel.Caption
+            style={{ background: "rgba(192, 108, 132, 0.7)", borderRadius: "10px" }}
+          >
+            <h3>Nuestras Tartas Frutales</h3>
+            <p>Con las frutas más frescas y deliciosas.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
       </Carousel>
 
       {/* Sección de destacados (id usado por el link del navbar) */}
