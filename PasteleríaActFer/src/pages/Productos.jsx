@@ -31,7 +31,7 @@ const Productos = () => {
 
   // --- LÓGICA DE FILTRADO ---
   // Obtenemos las categorías únicas para el dropdown
-  const categories = ["Todos","Tortas", "Galletas","Cupcakes","Tartas", ...new Set(products.map((p) => p.category))];
+  const categories = ["Todos", ...new Set(products.map((p) => p.category))];
 
   // Filtramos la lista de productos antes de hacer el .map()
 const filteredProducts = products
