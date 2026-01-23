@@ -1,3 +1,4 @@
+// src/pages/Inicio.jsx
 import { useMemo } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
@@ -6,20 +7,21 @@ import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard.jsx";
-import products from "../data/Products.json";
+import { useProducts } from "../context/ProductsContext.jsx";
 
 const Inicio = () => {
   const navigate = useNavigate();
+  const { products } = useProducts();
 
-  // useMemo: calcula 1 vez (en este montaje) los 4 productos al azar
+  // useMemo: calcula los 4 productos al azar cada vez que cambie products
   const destacados = useMemo(() => {
     const copy = [...products]; // copia para no alterar el original
     for (let i = copy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [copy[i], copy[j]] = [copy[j], copy[i]]; // “barajar”
+      [copy[i], copy[j]] = [copy[j], copy[i]]; // barajar
     }
     return copy.slice(0, 4); // toma 4
-  }, []);
+  }, [products]);
 
   return (
     <>
@@ -38,6 +40,7 @@ const Inicio = () => {
             <p>Hechas con amor y los mejores ingredientes.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -51,6 +54,7 @@ const Inicio = () => {
             <p>Reales y deliciosas.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -64,6 +68,7 @@ const Inicio = () => {
             <p>Con los sabores más irresistibles.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -79,7 +84,7 @@ const Inicio = () => {
         </Carousel.Item>
       </Carousel>
 
-      {/* Sección de destacados (id usado por el link del navbar) */}
+      {/* Sección de destacados */}
       <Container className="ProdDestacados" id="ProdDestacados">
         <div className="text-start mb-3">
           <h2 className="h4 fw-bold mb-1">Productos destacados</h2>

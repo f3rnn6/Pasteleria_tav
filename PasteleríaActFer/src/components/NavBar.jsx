@@ -2,17 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Carrito from "./Carrito.jsx";
 import { useCart } from "../context/logicform.jsx";
+import { useProducts } from "../context/ProductsContext.jsx";
+
 
 const Navbar = () => {
   // Lee estado y acciones del carrito
   const { cart, cartCount, clearCart } = useCart();
+  const { discountStock } = useProducts();
 
-  // Simulación de compra (demo)
+
   const handleBuy = () => {
-    if (cart.length === 0) return;
-    alert("¡Compra realizada (demo)! Gracias por tu pedido.");
-    clearCart(); // vacía después de “comprar”
-  };
+  if (cart.length === 0) return;
+
+  const confirm = window.confirm("¿Confirmas la compra? Se descontará el stock.");
+  if (!confirm) return;
+
+  discountStock(cart);
+  clearCart();
+};
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-pastel shadow-sm">
@@ -55,6 +63,7 @@ const Navbar = () => {
                 Productos
               </Link>
             </li>
+            
 
             {/* Dropdown contacto */}
             <li className="nav-item dropdown">
@@ -74,6 +83,11 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/admin">
+                Admin
+              </Link>
             </li>
 
             {/* Botón carrito: abre modal y muestra contador */}

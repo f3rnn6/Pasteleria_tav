@@ -1,19 +1,19 @@
 import { useState } from "react";
-// 1. Añadimos Form e InputGroup a los imports
 import { Container, Row, Col, Modal, Button, Form, InputGroup } from "react-bootstrap";
 import ProductCard from "../components/ProductCard.jsx";
-import products from "../data/Products.json";
 import { useCart } from "../context/logicform.jsx";
+import { useProducts } from "../context/ProductsContext.jsx";
 
 const Productos = () => {
   const { addToCart } = useCart();
+  const { products, loading } = useProducts();
 
-  // --- ESTADOS PARA EL FILTRADO ---
+  // --- FILTROS ---
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("default");
   const [categoryFilter, setCategoryFilter] = useState("Todos");
 
-  // Control del modal
+  // --- MODAL ---
   const [show, setShow] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -29,27 +29,33 @@ const Productos = () => {
     handleClose();
   };
 
-  // --- LÓGICA DE FILTRADO ---
-  // Obtenemos las categorías únicas para el dropdown
-  const categories = ["Todos", ...new Set(products.map((p) => p.category))];
+  if (loading) {
+    return (
+      <Container className="my-5 text-center">
+        <p className="text-muted">Cargando productos...</p>
+      </Container>
+    );
+  }
 
-  // Filtramos la lista de productos antes de hacer el .map()
-const filteredProducts = products
-  .filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = categoryFilter === "Todos" || product.category === categoryFilter;
-    return matchesSearch && matchesCategory;
-  })
-  .sort((a, b) => {
-    if (sortOrder === "priceDesc") return b.price - a.price;
-    if (sortOrder === "priceAsc") return a.price - b.price;
-    return 0; // Orden por defecto (como viene en el JSON)
-  });
+  const safeProducts = Array.isArray(products) ? products : [];
+
+  const categories = ["Todos", ...new Set(safeProducts.map((p) => p.category).filter(Boolean))];
+
+  const filteredProducts = safeProducts
+    .filter((product) => {
+      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = categoryFilter === "Todos" || product.category === categoryFilter;
+      return matchesSearch && matchesCategory;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "priceDesc") return b.price - a.price;
+      if (sortOrder === "priceAsc") return a.price - b.price;
+      return 0;
+    });
 
   return (
     <Container className="my-5">
-      
-      {/* --- SECCIÓN DE FILTROS (Añadida) --- */}
+      {/* --- FILTROS --- */}
       <Row className="mb-4 g-3">
         <Col xs={12} md={4}>
           <InputGroup>
@@ -66,10 +72,7 @@ const filteredProducts = products
         </Col>
 
         <Col xs={12} md={4}>
-          <Form.Select 
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-          >
+          <Form.Select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
             <option value="default">Ordenar por...</option>
             <option value="priceAsc">Precio: Menor a Mayor</option>
             <option value="priceDesc">Precio: Mayor a Menor</option>
@@ -77,10 +80,7 @@ const filteredProducts = products
         </Col>
 
         <Col xs={12} md={4}>
-          <Form.Select 
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-          >
+          <Form.Select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
             {categories.map((cat, index) => (
               <option key={index} value={cat}>
                 {cat}
@@ -90,9 +90,8 @@ const filteredProducts = products
         </Col>
       </Row>
 
-      {/* --- GRILLA DE PRODUCTOS --- */}
+      {/* --- GRILLA --- */}
       <Row xs={1} sm={2} md={3} className="g-3">
-        {/* Cambiamos "products" por "filteredProducts" */}
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <Col key={product.id}>
@@ -112,7 +111,7 @@ const filteredProducts = products
         )}
       </Row>
 
-      {/* --- MODAL DE DETALLE --- */}
+      {/* --- MODAL --- */}
       <Modal show={show} onHide={handleClose} size="lg" centered>
         {selectedProduct && (
           <>
@@ -133,9 +132,15 @@ const filteredProducts = products
                 <Col md={6}>
                   <h5>Descripción</h5>
                   <p className="text-muted">{selectedProduct.description}</p>
-                  <h3 style={{ color: "#1e7dff" }} className="mt-4">
-                    ${selectedProduct.price}
-                  </h3>
+
+                  <div className="d-flex align-items-center justify-content-between mt-3">
+                    <div className="fw-semibold">
+                      Stock: <span className="text-muted">{Number(selectedProduct.stock ?? 0)}</span>
+                    </div>
+                    <h3 style={{ color: "#1e7dff" }} className="mb-0">
+                      ${selectedProduct.price}
+                    </h3>
+                  </div>
                 </Col>
               </Row>
             </Modal.Body>
@@ -144,11 +149,13 @@ const filteredProducts = products
               <Button variant="secondary" onClick={handleClose}>
                 Volver
               </Button>
+
               <Button
                 style={{ backgroundColor: "#c06c84", border: "none" }}
                 onClick={() => handleAddToCart(selectedProduct)}
+                disabled={Number(selectedProduct.stock ?? 0) <= 0}
               >
-                Agregar al Carrito
+                {Number(selectedProduct.stock ?? 0) <= 0 ? "Sin stock" : "Agregar al Carrito"}
               </Button>
             </Modal.Footer>
           </>
