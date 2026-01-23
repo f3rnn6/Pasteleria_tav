@@ -79,7 +79,7 @@ export const ProductsProvider = ({ children }) => {
   );
 };
 
-// ✅ ESTE EXPORT es el que te está faltando
+
 export const useProducts = () => {
   const ctx = useContext(ProductsContext);
   if (!ctx) throw new Error("useProducts debe usarse dentro de <ProductsProvider>.");

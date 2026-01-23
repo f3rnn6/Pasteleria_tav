@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
       const canAdd = Math.min(Number(qty ?? 1), productStock - currentQty);
       if (canAdd <= 0) return prev;
 
-      // Si ya está, suma pero sin pasar stock
+      // suma pero sin pasar stock
       if (found) {
         return prev.map((i) =>
           i.id === product.id

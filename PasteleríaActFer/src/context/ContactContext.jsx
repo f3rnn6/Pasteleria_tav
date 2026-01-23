@@ -18,7 +18,7 @@ export const ContactProvider = ({ children }) => {
       return false;
     }
 
-    // Aquí iría tu lógica de API/Envío
+    // lógica de API/Envío
     console.log("Enviando datos:", { email, mensaje });
     setSuccess(true);
     
@@ -42,5 +42,5 @@ export const ContactProvider = ({ children }) => {
   );
 };
 
-// Hook personalizado para usar el contexto fácilmente
+// Hook 
 export const useContact = () => useContext(ContactContext);

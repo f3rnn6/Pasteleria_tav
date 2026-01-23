@@ -51,7 +51,7 @@ const Navbar = () => {
               </Link>
             </li>
 
-            {/* Link por hash para bajar a la sección de destacados */}
+            
             <li className="nav-item">
               <a className="nav-link" href="/#ProdDestacados">
                 Productos Destacados
@@ -90,7 +90,7 @@ const Navbar = () => {
               </Link>
             </li>
 
-            {/* Botón carrito: abre modal y muestra contador */}
+            
             <li className="nav-item ms-lg-3">
               <button
                 className="btn btn-primary position-relative"
@@ -144,7 +144,7 @@ const Navbar = () => {
                     Vaciar
                   </button>
 
-                  {/* Comprar (demo) */}
+                  
                   <button
                     type="button"
                     className="btn btn-primary"

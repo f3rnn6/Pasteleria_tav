@@ -88,7 +88,7 @@ const Inicio = () => {
       <Container className="ProdDestacados" id="ProdDestacados">
         <div className="text-start mb-3">
           <h2 className="h4 fw-bold mb-1">Productos destacados</h2>
-          <p className="text-muted mb-0">Se muestran 4 productos al azar.</p>
+          <p className="text-muted mb-0">Se muestran los 4 productos mas destacados.</p>
         </div>
 
         <Row xs={1} sm={2} md={4} className="g-3">
